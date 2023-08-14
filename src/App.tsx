@@ -20,6 +20,7 @@ function App() {
   const startQuiz = async () => {
     setLoading(true);
     setUserAnswers([]);
+    setCurrent(0);
 
     const questions = await fetchQuiz();
 
