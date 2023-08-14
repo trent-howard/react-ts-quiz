@@ -54,10 +54,10 @@ function App() {
           </div>
         )}
         {loading && <p>Loading question...</p>}
-        {!gameOver && !loading && (
+        {!loading && Boolean(questions.length) && (
           <p className="text-4xl font-bold">Score: {score}</p>
         )}
-        {Boolean(questions.length) && (
+        {Boolean(questions.length) && !loading && (
           <>
             <QuestionCard
               questionNb={current + 1}
@@ -73,7 +73,7 @@ function App() {
                 onClick={nextQuestion}
                 disabled={gameOver || !userAnswers[current]}
               >
-                Next question
+                {gameOver ? 'Game over!' : 'Next question'}
               </button>
             </div>
           </>
