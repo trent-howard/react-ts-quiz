@@ -16,8 +16,8 @@
   @apply opacity-75 dark:opacity-60;
 }
 .btn-green {
-  @apply border-transparent bg-green-500 text-slate-50;
+  @apply border-transparent bg-green-500 text-slate-50 dark:text-slate-50;
 }
 .btn-red {
-  @apply border-transparent bg-red-500 text-slate-50;
+  @apply border-transparent bg-red-500 text-slate-50 dark:text-slate-50;
 }
