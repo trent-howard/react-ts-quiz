@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { fetchQuiz, type Question } from './api';
 import QuestionCard from './components/QuestionCard';
+import ThemeToggle from './components/ThemeToggle';
 
 import './index.css';
 
@@ -44,7 +45,7 @@ function App() {
   const score = userAnswers.filter((ans) => ans.isCorrect).length;
 
   return (
-    <div className="flex h-screen w-full items-center justify-center align-middle">
+    <div className="flex h-screen w-full flex-col items-center justify-center gap-2 align-middle">
       <div className="flex w-[min(95%,30rem)] flex-col items-center gap-6 rounded-xl border-4 border-indigo-600 p-5 sm:p-10">
         <h1 className="text-center text-4xl font-bold sm:text-6xl">
           React Quiz!
@@ -78,6 +79,7 @@ function App() {
           </button>
         )}
       </div>
+      <ThemeToggle />
     </div>
   );
 }
