@@ -23,13 +23,13 @@ const QuestionCard: React.FC<Props> = ({
         Question: {questionNb} / {totalQuestions}
       </p>
       <p className="text-center">{question}</p>
-      <div className="flex flex-col justify-center gap-3">
+      <div className="grid grid-rows-4 gap-3">
         {answers.map((answer) => (
           <button
             className={`btn ${
-              userAnswer.correctAnswer === answer ? 'btn-green' : ''
+              userAnswer?.correctAnswer === answer ? 'btn-green' : ''
             } ${
-              userAnswer.answer === answer && !userAnswer.isCorrect
+              userAnswer?.answer === answer && !userAnswer.isCorrect
                 ? 'btn-red'
                 : ''
             }`}

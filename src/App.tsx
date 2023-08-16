@@ -49,13 +49,6 @@ function App() {
         <h1 className="text-center text-4xl font-bold sm:text-6xl">
           React Quiz!
         </h1>
-        {(gameOver || !questions.length) && (
-          <div>
-            <button className="btn" onClick={startQuiz}>
-              Start
-            </button>
-          </div>
-        )}
         {loading && <p>Loading question...</p>}
         {!loading && Boolean(questions.length) && (
           <p className="text-4xl font-bold sm:text-6xl">Score: {score}</p>
@@ -67,19 +60,22 @@ function App() {
               totalQuestions={questions.length}
               question={questions[current].question}
               answers={questions[current].answers}
-              userAnswer={userAnswers[current] || ''}
+              userAnswer={userAnswers[current]}
               callback={checkAnswer}
             />
-            <div>
-              <button
-                className="btn"
-                onClick={nextQuestion}
-                disabled={gameOver || !userAnswers[current]}
-              >
-                {gameOver ? 'Game over!' : 'Next question'}
-              </button>
-            </div>
+            <button
+              className="btn"
+              onClick={nextQuestion}
+              disabled={gameOver || !userAnswers[current]}
+            >
+              {gameOver ? 'Game over!' : 'Next question'}
+            </button>
           </>
+        )}
+        {(gameOver || !questions.length) && (
+          <button className="btn" onClick={startQuiz}>
+            Start new quiz
+          </button>
         )}
       </div>
     </div>
