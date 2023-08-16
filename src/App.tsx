@@ -44,9 +44,11 @@ function App() {
   const score = userAnswers.filter((ans) => ans.isCorrect).length;
 
   return (
-    <div className="flex h-screen w-full items-center justify-center p-4 align-middle">
-      <div className="flex flex-col items-center gap-6 rounded-xl border-4 border-indigo-600 p-10">
-        <h1 className="text-6xl font-bold">React Quiz!</h1>
+    <div className="flex h-screen w-full items-center justify-center align-middle">
+      <div className="flex w-[min(95%,30rem)] flex-col items-center gap-6 rounded-xl border-4 border-indigo-600 p-5 sm:p-10">
+        <h1 className="text-center text-4xl font-bold sm:text-6xl">
+          React Quiz!
+        </h1>
         {(gameOver || !questions.length) && (
           <div>
             <button className="btn" onClick={startQuiz}>
@@ -56,7 +58,7 @@ function App() {
         )}
         {loading && <p>Loading question...</p>}
         {!loading && Boolean(questions.length) && (
-          <p className="text-4xl font-bold">Score: {score}</p>
+          <p className="text-4xl font-bold sm:text-6xl">Score: {score}</p>
         )}
         {Boolean(questions.length) && !loading && (
           <>
